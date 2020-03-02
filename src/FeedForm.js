@@ -112,7 +112,7 @@ else{
                     <img src={prop.image} style={imgStyle}/>
                     <div>
                 <label>Want to post another?</label>
-                <textarea type='text' className="form-control" placeholder='Post' ref={(elem)=>userComment = elem}></textarea>
+                <textarea type='text' className="form-control" placeholder='Post' ref={(elem)=>description = elem}></textarea>
                 </div>
                 </div>
                 
