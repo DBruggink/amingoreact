@@ -5,7 +5,7 @@ import FeedCard from './FeedCard.js';
 
 const LoadFeedButton = () => {
     //Global State
-    const[globalState,setGlobalState]=useContext(AppContext)
+    const[globalState]=useContext(AppContext)
     //Local State
     const [state, setState] = useState(
         { feed: [] }

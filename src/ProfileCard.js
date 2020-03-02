@@ -35,7 +35,7 @@ const ProfileCard =()=>{
     return(
         <div className="row"  style={profileStyle}>
             <div className="column" style={columnStyle}>
-            <img src='https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80' style={imgStyle}/>
+            <img src='https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80' style={imgStyle} alt=''/>
             <br/>
             <p style={paraStyle}>JEFFY JEFFERTON</p>
             </div>

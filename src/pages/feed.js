@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
-import FeedCard from '../FeedCard'
+
 import FeedForm from '../FeedForm'
 import LoadFeed from '../LoadFeed'
 import AppContext from '../AppContext'
-import CardLayout from '../CardLayout'
+
 
 function Feed() {
-    const[globalState,setGlobalState]=useContext(AppContext)
-  
+    const[globalState]=useContext(AppContext)
+    if(globalState.loggedIn ===true){
         return (
             <div>
             <FeedForm/>
@@ -17,6 +17,19 @@ function Feed() {
                 
 
             </div>
-        )
+        )}
+        else if(globalState.loggedIn===false){
+            return(
+                <div>
+            <FeedForm/>
+
+            
+            <LoadFeed/>
+                
+
+            </div>
+
+            )
+        }
         }
         export default Feed

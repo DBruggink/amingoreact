@@ -1,5 +1,4 @@
-import React, {useState, useContext} from 'react'
-import AppContext from './AppContext'
+import React, {useState} from 'react'
 
 
 const formStyle={
@@ -25,8 +24,7 @@ const selectStyle ={
 
 const FeedForm= (prop)=>{
 
-    const[globalState,setGlobalState]=useContext(AppContext)
-   
+    
 
     let description;
     let emirate;
@@ -64,7 +62,7 @@ const FeedForm= (prop)=>{
         <div className="container feed-form" style={formStyle}>
             <form>
                 <div className="form-group">
-                    <img src={prop.image} style={imgStyle}/>
+                    <img src={prop.image} style={imgStyle} alt=''/>
                     <div>
                 <label>Write your post!</label>
                 
@@ -78,7 +76,7 @@ const FeedForm= (prop)=>{
                 </div>
                 <form action="/user/create">
                     <label for='image'>Upload a picture:</label>
-                    <input type="file" type='image' id='image' name='image' accept='image/*' ref={(elem)=>image = elem} type='submit'/>
+                    <input type="file"  id='image' name='image' accept='image/*' ref={(elem)=>image = elem} />
                     
                 </form>
                 
@@ -109,7 +107,7 @@ else{
 <div className="container feed-form" style={formStyle}>
             <form>
                 <div className="form-group">
-                    <img src={prop.image} style={imgStyle}/>
+                    <img src={prop.image} style={imgStyle} alt=''/>
                     <div>
                 <label>Want to post another?</label>
                 <textarea type='text' className="form-control" placeholder='Post' ref={(elem)=>description = elem}></textarea>

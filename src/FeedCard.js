@@ -32,7 +32,7 @@ const FeedCard= (prop)=>{
       return(
         <div>
       <div className="card" style={cardStyle}>
-      <img src={prop.image}  style={imgStyle} />
+      <img src={prop.image}  style={imgStyle} alt='' />
       <div className="card-body" style={postStyle} >
         <h5 className='car-header'style={headerStyle}>{prop.fullname}</h5>
         <p className="card-text" >{prop.description}</p>

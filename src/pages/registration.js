@@ -72,7 +72,7 @@ const Registration=()=>{
 
     <div className="register" style={regStyle}>
         <form>
-                <img src={Logo} style={logoStyle}/>
+                <img src={Logo} style={logoStyle} alt=''/>
                 <h3 style={headerStyle}>Sign Up</h3>
                 
 
@@ -103,7 +103,7 @@ const Registration=()=>{
                 </div>
                 <form action="/user/create">
                     <label for='image'>Select profile Picture:</label>
-                    <input type="file" type='image' id='image' name='image' accept='image/*' ref={(elem)=>image = elem} type='submit'/>
+                    <input type="file"  id='image' name='image' accept='image/*' ref={(elem)=>image = elem} />
                     
                 </form>
                 <div>

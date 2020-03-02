@@ -28,7 +28,7 @@ const Carousel= ()=>{
 
   }
   
-  const[globalState,setGlobalState]=useContext(AppContext)
+  const[globalState]=useContext(AppContext)
   
   
   

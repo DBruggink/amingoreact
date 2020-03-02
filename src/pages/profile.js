@@ -1,7 +1,7 @@
 
-import React, {useState, useContext} from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import AppContext from '../AppContext'
+import React from 'react';
+
+
 import ProfileCard from '../ProfileCard'
 
 function profile(){

@@ -1,5 +1,6 @@
 import React from 'react'
 import Logo from './AlphaSportBlack.png'
+import {Link} from 'react-router-dom'
 
 function Footer(){
     
@@ -34,20 +35,20 @@ function Footer(){
 
         
         <div className='footer-navigation-links'style={footerStyle}>
-            <img src={Logo} style={logoStyle}/>
+            <img src={Logo} style={logoStyle} alt=''/>
             <div>
             <ul style={boxStyle} >
-            <li style={listStyle}><a href=''>Home</a> </li>
+            <li style={listStyle}><Link to='/'><span >Home</span></Link> </li>
             
 
-            <li style={listStyle}><a href=''>About Us</a></li>
+            <li style={listStyle}><Link to='/about'><span >About Us</span></Link></li>
             
-            <li style={listStyle}><a href=''>Profile</a></li>
+            <li style={listStyle}><Link to='/profile'><span >Profile</span></Link></li>
 
-            <li style={listStyle}><a href=''>Feed</a></li>
-            <li style={listStyle}><a href=''>Login</a></li>
+            <li style={listStyle}><Link to='/feed'><span >Feed</span></Link></li>
+            <li style={listStyle}><Link to='/login'><span >Login</span></Link></li>
 
-            <li style={listStyle}><a href=''>Registration</a></li>            
+            <li style={listStyle}><Link to='/register'><span >Registration</span></Link></li>            
             </ul>
             </div>
 

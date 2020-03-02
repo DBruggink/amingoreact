@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import AppContext from './AppContext'
 import Logo from './AlphaSportBlack.png'
 
@@ -26,7 +26,7 @@ const Navbar= ()=>{
         <nav className="navbar navbar-expand-lg navbar navbar-dark bg-dark" >
    
   <span className="navbar-brand" href="#">
-    <Link to={'/'}><img src={Logo} style={logoStyle}/></Link>
+    <Link to={'/'}><img src={Logo} style={logoStyle} alt=''/></Link>
   
   </span>
  

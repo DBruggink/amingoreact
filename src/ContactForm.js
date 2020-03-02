@@ -1,30 +1,7 @@
 import React from 'react'
 const ContactForm=()=>{
     
-    const formStyle={
-        height:'200px'
-    }
-    const textStyle={
-        width: '100%', 
-        padding: '12px',  
-        border: '1px solid #ccc', 
-        borderRadius: '4px', 
-        boxSizing: 'border-box', 
-        marginTop: '6px', 
-        marginBottom: '16px', 
-        resize: 'vertical' 
-
-
-    }
-
-    const submitStyle={
-        backgroundColor: '#4CAF50',
-        color: 'white',
-        padding: '12px 20px',
-        border: 'none',
-        borderRadius: '4px',
-        cursor: 'pointer',
-      }
+    
 
       const containerStyle={
         borderRadius: '5px',
@@ -33,7 +10,7 @@ const ContactForm=()=>{
         flex: '1',
         flexDirection:'column',
         alignItems: 'center',
-        backgroundColor: 'grey'
+        
     
       }
     
@@ -106,7 +83,7 @@ const ContactForm=()=>{
         </form>
 
         <div className="text-center text-md-left">
-            <a className="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
+            <button className="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</button>
         </div>
         <div className="status"></div>
     </div>
