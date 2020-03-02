@@ -28,7 +28,7 @@ const FeedForm= (prop)=>{
     const[globalState,setGlobalState]=useContext(AppContext)
    
 
-    let userComment;
+    let description;
     let emirate;
     let hashtags;
     let image
@@ -45,7 +45,7 @@ const FeedForm= (prop)=>{
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
-                description: userComment.value,
+                description: description.value,
                 emirate: emirate.value,
                 hashtags: hashtags.value,
                 image: image.value
@@ -68,7 +68,7 @@ const FeedForm= (prop)=>{
                     <div>
                 <label>Write your post!</label>
                 
-                <textarea type='text' className="form-control" placeholder='Post' ref={(elem)=>userComment = elem}></textarea>
+                <textarea type='text' className="form-control" placeholder='Post' ref={(elem)=>description = elem}></textarea>
                 
                 </div>
                 </div>
