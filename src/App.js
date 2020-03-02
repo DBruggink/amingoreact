@@ -1,25 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import Home from './pages/landingpage'
+import Login from './pages/login'
+import Navbar from './Navbar'
+import Registration from './pages/registration'
+import About from './pages/about'
+import './App.css'
+import AppContext from './AppContext'
+import Profile from './pages/profile'
+import Footer from './Footer'
+import Feed from './pages/feed'
+
+
+
 
 function App() {
+ 
+  
+ const[globalState,setGlobalState]=useState(
+    {
+      loggedIn: false,
+     
+    }
+  )
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <AppContext.Provider value={[globalState,setGlobalState]}>
+<BrowserRouter>
+    <div className='App'>
+  <Navbar/>
+  <Switch>
+   
+    <Route exact path='/' component={Home} />
+    <Route path='/login' component={Login} />
+    <Route path='/register' component={Registration} />
+    <Route path='/about' component={About} />
+    <Route path='/profile' component={Profile} />
+    <Route path='/feed' component={Feed}/>
+
+  </Switch>
+  <Footer/>
     </div>
+    </BrowserRouter>
+    </AppContext.Provider>
   );
 }
 
