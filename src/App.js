@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, Component} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import Home from './pages/landingpage'
 import Login from './pages/login'
@@ -37,6 +37,11 @@ function App() {
             <Footer location={location.pathname} />
         </div>
     )
+}
+const PrivateRoute=({component: Component, ..restOfProps})=>{
+  return(
+    
+  )
 }
 
   return (
