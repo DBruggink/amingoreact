@@ -24,20 +24,34 @@ function App() {
      
     }
   )
+  const LayoutRoute = ({ location, path, exact, component }) => {
+    return (
+        <div>
+          
+            <Navbar location={location.pathname} />
+            <Route 
+                path={path} 
+                exact={exact}
+                component={component}
+            />
+            <Footer location={location.pathname} />
+        </div>
+    )
+}
 
   return (
     <AppContext.Provider value={[globalState,setGlobalState]}>
 <BrowserRouter>
     <div className='App'>
-  <Navbar/>
+  
   <Switch>
    
-    <Route exact path='/' component={Home} />
-    <Route path='/login' component={Login} />
-    <Route path='/register' component={Registration} />
-    <Route path='/about' component={About} />
-    <Route path='/profile' component={Profile} />
-    <Route path='/feed' component={Feed}/>
+    <LayoutRoute exact path='/' component={Home} />
+    <LayoutRoute path='/login' component={Login} />
+    <LayoutRoute path='/register' component={Registration} />
+    <LayoutRoute path='/about' component={About} />
+    <LayoutRoute path='/profile' component={Profile} />
+    <LayoutRoute path='/feed' component={Feed}/>
 
   </Switch>
   <Footer/>
