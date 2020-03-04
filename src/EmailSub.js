@@ -11,11 +11,39 @@ const EmailSub=()=>{
         saved:false,
         
     })
-
+    let email;
     const save=()=>{
-        setState({...state, saved: true})
-    
+     /* fetch(`${process.env.REACT_APP_BACKEND_URL}emailsub/create`, 
+      {
+          method: 'POST',
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({             
+            email: email.value
+              
+          })
+      })
+      .then(response =>setState({...state, saved: true}))
+  }*/
+
+  fetch(`${process.env.REACT_APP_BACKEND_URL}emailsub/create`, 
+        {
+            method: 'POST',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                
+                email: email.value,
+                
+            })
+        })
+        .then(response =>setState({...state, saved: true}))
     }
+    
+    
+
+    
+   
+
+    
    
     
     
@@ -33,7 +61,7 @@ return(
           <hr className="my-4" />
           <p>Be updated with all posted events that match your interests. You wont regret it! </p>
           <div className="input-group mb-6">
-            <input type="text" className="form-control" placeholder="Recipient's Email" aria-label="Recipient's username" aria-describedby="button-addon2" />
+            <input type="text" className="form-control" placeholder="Recipient's Email" aria-label="Recipient's username" aria-describedby="button-addon2" ref={(elem)=>email=elem} />
             <div className="input-group-append">
               <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={save}>Save</button>
             </div>

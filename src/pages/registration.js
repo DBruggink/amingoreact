@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { Link} from 'react-router-dom'
 import Logo from '../AlphaSportBlack.png'
+import AppContext from '../AppContext'
 
 const regStyle={
    
@@ -38,6 +39,8 @@ const Registration=()=>{
     let bio;
     let image
 
+    const [globalstate]=useContext(AppContext)
+
     const [state, setState] = useState(
         {saved: false}
     )
@@ -65,7 +68,7 @@ const Registration=()=>{
  
   
   
-    if(state.saved === false) {
+    if(globalstate.loggedIn === false) {
   return (
 
 
@@ -82,7 +85,7 @@ const Registration=()=>{
                 </div>
                  <div className="form-group">
                     <label>Email address</label>
-                    <input type="email" className="form-control" placeholder="Enter email" ref={(elem)=>email = elem}/>
+                    <input type="email" className="form-control" placeholder="Enter email" ref={(elem)=>email= elem}/>
                 </div>
                 <div className="form-group">
                     <label>Sports (seperated with a comma)</label>

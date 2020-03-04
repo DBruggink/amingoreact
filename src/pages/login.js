@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
 
-import Button from '@material-ui/core/Button';
+
 import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
+
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import {Link} from 'react-router-dom'
@@ -68,48 +68,37 @@ const useStyles = makeStyles(theme => ({
 export default function SignInSide() {
   const classes = useStyles();
  
-    let emailField, passwordField;
+    let email, password;
 
   const[globalState,setGlobalState]=useContext(AppContext)
   
-  const logOut=()=>{
-    setGlobalState(
-      {
-        ...globalState,
-        loggedIn:false
-      }
-    )
-  }
+  
 
-    const logIn =()=>{
-      fetch(`${process.env.REACT_APP_BACKEND_URL}user/login`,{
-        method:'POST',
-        headers:{"Content-Type": "application/json"},
+  const logIn = () => {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}user/login`,{
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
-          email: emailField.value,
-          password: passwordField.value
+            email: email.value,
+            password: password.value
         })
-      })
-      .then(
+    })
+    .then(
         (response)=>response.json()
-      )
-      .then(
-        (result)=>{
-          
-          sessionStorage.setItem('jwt', result.token)
-          
-          
-          setGlobalState(
-            {
-              ...globalState,
-              loggedIn:true
-            }
-          )
+    )
+    .then(
+        (result)=> {
+            // 1. Save the JWT in sessionStorage
+            sessionStorage.setItem('jwt', result.token)
+
+            // 2. Set the loggedIn global state to true
+            setGlobalState({
+                ...globalState,
+                loggedIn: true
+            })
         }
-      )
-      
-      
-      }
+    )
+}
       
       const logoStyle ={
         width:'150px',
@@ -137,62 +126,27 @@ export default function SignInSide() {
             Sign in
           </Typography>
           <form className={classes.form} noValidate>
-            <TextField
-            ref={(elem)=>emailField=elem}
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              ref={(elem)=>passwordField=elem}
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
+          <div className="form-group">
+                    <label>Email address</label>
+                    <input type="email" className="form-control" placeholder="Enter email" ref={(elem)=>email = elem}/>
+                </div>
+            <div className="form-group">
+                    <label>Password</label>
+                    <input type="password" className="form-control" placeholder="Enter password" ref={(elem)=>password = elem} />
+                </div>
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
       
-      {      
-            globalState.loggedIn=== false &&
-            
-            <Button onClick={logIn}
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="secondary"
-              className={classes.submit}
-            >
-              Sign In
-            </Button>
           
-            }
             
-            {
-      globalState.loggedIn=== true &&
-      <Button onClick={logOut}
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="secondary"
-              className={classes.submit}
-            >
-              Sign Out
-            </Button>
-            }
+            
+            <button onClick={logIn} type="submit" className="btn btn-danger btn-block" >Sign In</button>
+          
+            
+            
+            
             
 
             

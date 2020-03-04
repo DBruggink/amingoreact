@@ -40,7 +40,7 @@ const Navbar= ()=>{
   <div className="collapse navbar-collapse" id="navbarNav">
     <ul className="navbar-nav">
       <li className="nav-item">
-        <span className="nav-link" href="#">Profile </span>
+      <Link to={'/profile'}> <span className="nav-link" href="#">Profile </span></Link>
       </li>
       
       <li className="nav-item">

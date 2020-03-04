@@ -71,7 +71,7 @@ const FeedForm= (prop)=>{
                 </div>
                 </div>
                 <div>
-                <label>#Hashtags</label>
+                
                     <input type="text" className="form-control" placeholder="Enter Hashtags" ref={(elem)=>hashtags = elem}/>
                 </div>
                 <form action="/user/create">
