@@ -8,6 +8,8 @@ const Navbar= ()=>{
   const[globalState,setGlobalState]=useContext(AppContext)
   
   const logOut=()=>{
+    sessionStorage.clear();
+
     setGlobalState(
       {
         ...globalState,

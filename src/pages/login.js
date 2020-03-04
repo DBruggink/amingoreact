@@ -32,6 +32,8 @@ function Copyright() {
   );
 }
 
+
+
 const useStyles = makeStyles(theme => ({
   root: {
     height: '100vh',
@@ -66,6 +68,8 @@ const useStyles = makeStyles(theme => ({
 export default function SignInSide() {
   const classes = useStyles();
  
+    let emailField, passwordField;
+
   const[globalState,setGlobalState]=useContext(AppContext)
   
   const logOut=()=>{
@@ -78,12 +82,33 @@ export default function SignInSide() {
   }
 
     const logIn =()=>{
-      setGlobalState(
-        {
-          ...globalState,
-          loggedIn:true
+      fetch(`${process.env.REACT_APP_BACKEND_URL}user/login`,{
+        method:'POST',
+        headers:{"Content-Type": "application/json"},
+        body: JSON.stringify({
+          email: emailField.value,
+          password: passwordField.value
+        })
+      })
+      .then(
+        (response)=>response.json()
+      )
+      .then(
+        (result)=>{
+          
+          sessionStorage.setItem('jwt', result.token)
+          
+          
+          setGlobalState(
+            {
+              ...globalState,
+              loggedIn:true
+            }
+          )
         }
       )
+      
+      
       }
       
       const logoStyle ={
@@ -113,6 +138,7 @@ export default function SignInSide() {
           </Typography>
           <form className={classes.form} noValidate>
             <TextField
+            ref={(elem)=>emailField=elem}
               variant="outlined"
               margin="normal"
               required
@@ -124,6 +150,7 @@ export default function SignInSide() {
               autoFocus
             />
             <TextField
+              ref={(elem)=>passwordField=elem}
               variant="outlined"
               margin="normal"
               required
@@ -138,7 +165,7 @@ export default function SignInSide() {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-      <Link to='/profile'>
+      
       {      
             globalState.loggedIn=== false &&
             
@@ -153,7 +180,7 @@ export default function SignInSide() {
             </Button>
           
             }
-            </Link>
+            
             {
       globalState.loggedIn=== true &&
       <Button onClick={logOut}
