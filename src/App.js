@@ -38,11 +38,11 @@ function App() {
         </div>
     )
 }
-const PrivateRoute=({component: Component, ..restOfProps})=>{
+/*const PrivateRoute=({component: Component, ...restOfProps})=>{
   return(
-    
+
   )
-}
+}*/
 
   return (
     <AppContext.Provider value={[globalState,setGlobalState]}>
